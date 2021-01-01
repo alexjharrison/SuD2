@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts">
-import { Game } from "../../types";
+import { Game } from "../../../common/types";
 import { defineComponent, inject } from "vue";
 import { useSocket } from "../hooks/useSocket";
 

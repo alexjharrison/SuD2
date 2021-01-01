@@ -1,6 +1,6 @@
 import { io } from "socket.io-client";
-import { Game } from "types";
 import { reactive } from "vue";
+import { Game } from "../../../common/types";
 
 const gameState = reactive<Game>({
   id: "placeholder",

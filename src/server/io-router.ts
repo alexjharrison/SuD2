@@ -1,5 +1,5 @@
-import { Game, TileNames } from "../client/types";
 import { Server, Socket } from "socket.io";
+import { Game, TileNames } from "../common/types";
 
 const gameState: Game = {
   id: "123",
@@ -17,11 +17,9 @@ const gameState: Game = {
   circles: [[TileNames.ONE]]
 };
 
-const ioRouter = (io: Server) => {
+export const ioRouter = (io: Server) => {
   io.on("connection", (socket: Socket) => {
     console.log("a user connected");
     socket.emit("update", gameState);
   });
 };
-
-module.exports = ioRouter;
