@@ -5,18 +5,19 @@
 </template>
 
 <script lang="ts">
+import { Game } from "../../types";
 import { defineComponent, inject } from "vue";
 import { useSocket } from "../hooks/useSocket";
 
 export default defineComponent({
   setup() {
-    useSocket();
+    const gameState: Game = useSocket();
 
     const name = "home screen";
 
     const id = inject<string>("id");
 
-    return { name, id };
+    return { name, id, gameState };
   }
 });
 </script>
