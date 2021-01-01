@@ -5,10 +5,13 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, inject, Ref } from "vue";
+import { defineComponent, inject } from "vue";
+import { useSocket } from "../hooks/useSocket";
 
 export default defineComponent({
   setup() {
+    useSocket();
+
     const name = "home screen";
 
     const id = inject<string>("id");
