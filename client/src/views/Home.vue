@@ -1,16 +1,19 @@
 <template>
   <div>
-    <h1>{{ name }}</h1>
+    <h1>{{ name }} {{ id }}</h1>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, inject, Ref } from "vue";
 
 export default defineComponent({
   setup() {
     const name = "home screen";
-    return { name };
+
+    const id = inject<string>("id");
+
+    return { name, id };
   }
 });
 </script>
