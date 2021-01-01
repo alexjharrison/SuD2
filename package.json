@@ -5,7 +5,7 @@
   "main": "index.ts",
   "scripts": {
     "start": "ts-node src/server",
-    "dev": "nodemon --watch 'src/**/*.ts' --exec ts-node src/server.ts"
+    "dev": "concurrently \"nodemon --watch src/**/*.ts --exec ts-node src/server.ts\" \"cd client && npm run serve\""
   },
   "repository": {
     "type": "git",
@@ -30,6 +30,7 @@
     "@types/express": "^4.17.9",
     "@types/node": "^14.14.16",
     "@types/uuid": "^8.3.0",
+    "concurrently": "^5.3.0",
     "nodemon": "^2.0.6"
   }
 }
