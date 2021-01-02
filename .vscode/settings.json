@@ -1,4 +1,5 @@
 {
-    "editor.formatOnSave": true,
-    "prettier.trailingComma": "none"
+  "editor.formatOnSave": true,
+  "prettier.trailingComma": "none",
+  "vetur.experimental.templateInterpolationService": true
 }

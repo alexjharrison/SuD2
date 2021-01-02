@@ -5,7 +5,7 @@
   "main": "GameData.js",
   "scripts": {
     "start": "ts-node src/server",
-    "dev": "concurrently \"nodemon --watch src/server/**/*.ts --exec ts-node src/server\" \"cd src/client && npm run serve\""
+    "dev": "concurrently \"nodemon --watch \"src/server/**/*.ts\" --exec ts-node src/server\" \"cd src/client && npm run serve\""
   },
   "repository": {
     "type": "git",

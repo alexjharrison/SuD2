@@ -1,21 +1,38 @@
 <template>
-  <div>
-    <router-view />
+  <div class="flex flex-col min-h-screen">
+    <app-header />
+    {{ game.boards }}
+    <main class="flex-grow">
+      <router-view />
+    </main>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, provide } from "vue";
-import { useSetId } from "./hooks/useSetId";
+import { computed, defineComponent } from "vue";
+import { useUserStore } from "@/store/user";
+import AppHeader from "@/components/nav/AppHeader.vue";
+import { useGameStore } from "./store/game";
+import { useSocket } from "./hooks/useSocket";
 
 export default defineComponent({
+  components: { AppHeader },
   setup() {
-    const { id } = useSetId();
-    provide("id", id);
+    // init socket connection and populate initial game data
+    useSocket();
 
-    return { id };
+    const user = useUserStore();
+    user.fetchUser();
+
+    const game = useGameStore();
+
+    return { user, game };
   }
 });
 </script>
 
-<style scoped></style>
+<style>
+main {
+  background-image: url("~@/assets/images/texture.jpg");
+}
+</style>

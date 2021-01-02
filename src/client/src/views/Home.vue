@@ -1,23 +1,17 @@
 <template>
   <div>
-    <h1>{{ name }} {{ id }}</h1>
+    <h1>{{ name }}</h1>
   </div>
 </template>
 
 <script lang="ts">
-import { Game } from "../../../common/types";
-import { defineComponent, inject } from "vue";
-import { useSocket } from "../hooks/useSocket";
+import { defineComponent } from "vue";
 
 export default defineComponent({
   setup() {
-    const gameState: Game = useSocket();
-
     const name = "home screen";
 
-    const id = inject<string>("id");
-
-    return { name, id, gameState };
+    return { name };
   }
 });
 </script>
