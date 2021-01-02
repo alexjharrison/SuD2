@@ -1,4 +1,4 @@
-import { PatternLine } from "../../client/types";
+import { PatternLine } from "@@/common/types";
 
 // export function createPatternLine(numTiles: number): IPatternLine {
 //   return {

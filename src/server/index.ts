@@ -14,7 +14,7 @@ const httpServer = createServer(app);
 const io = new Server(httpServer);
 ioRouter(io);
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3000;
 const NODE_ENV = process.env.NODE_ENV;
 
 if (NODE_ENV === "production") {
