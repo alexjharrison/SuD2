@@ -2,12 +2,12 @@
   <div class="w-full">
     <div class="flex justify-evenly">
       <Circle
-        v-for="(circleTiles, i) in game.circles"
+        v-for="(circleTiles, i) in circles"
         :key="i"
         :tiles="circleTiles"
         :circle-index="i"
         :class="
-          i % 2 !== 0 && screenWidth < 1000 && game.circles.length > 5
+          i % 2 !== 0 && screenWidth < 1000 && circles.length > 5
             ? 'stagger'
             : ''
         "
@@ -18,19 +18,20 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import { useGameStore } from "@/store/game";
+import { defineComponent, PropType } from "vue";
+import { TileNames } from "../../../../common/types";
 import { useScreenWidth } from "@/hooks/useScreenWidth";
 import Circle from "./Circle.vue";
 
 export default defineComponent({
   components: { Circle },
+  props: {
+    circles: { type: Array as PropType<TileNames[][]>, required: true }
+  },
   setup() {
-    const game = useGameStore();
-
     const { screenWidth } = useScreenWidth();
 
-    return { game, screenWidth };
+    return { screenWidth };
   }
 });
 </script>
