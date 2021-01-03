@@ -14,11 +14,11 @@ export const useGameStore = defineStore({
   getters: {
     myBoard() {
       const userStore = useUserStore();
-      return this.boards.find((board) => board.id === userStore.id);
+      return this.boards.find(board => board.id === userStore.id);
     },
     otherBoards() {
       const userStore = useUserStore();
-      return this.boards.filter((board) => board.id !== userStore.id);
+      return this.boards.filter(board => board.id !== userStore.id);
     }
   },
   actions: {

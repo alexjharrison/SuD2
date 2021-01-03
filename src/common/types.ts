@@ -1,6 +1,5 @@
 export enum TileNames {
   BLACK = "black",
-  TEAL = "teal",
   YELLOW = "yellow",
   SNOW = "snow",
   ONE = "one",
@@ -22,12 +21,16 @@ export interface Board {
   penalties: TileNames[];
 }
 
+// export interface TileReceptacle {
+
+// }
+
 export interface Game {
   id: string;
   boards: Board[];
   tilesDiscarded: TileNames[];
   potTiles: TileNames[];
-  circles: [TileNames[]];
+  circles: TileNames[][];
 }
 
 export interface User {

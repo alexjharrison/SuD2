@@ -1,5 +1,6 @@
 {
   "editor.formatOnSave": true,
   "prettier.trailingComma": "none",
+  "prettier.arrowParens": "avoid",
   "vetur.experimental.templateInterpolationService": true
 }

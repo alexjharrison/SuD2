@@ -1,3 +1,17 @@
 <template>
-  <div class="text-2xl"><h1>about</h1></div>
+  <div>
+    <h3>About</h3>
+  </div>
 </template>
+
+<script lang="ts">
+import { defineComponent } from "vue";
+
+export default defineComponent({
+  setup() {
+    return {};
+  }
+});
+</script>
+
+<style scoped></style>
