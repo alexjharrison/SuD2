@@ -50,6 +50,8 @@ const gameState: Game = {
     [TileNames.YELLOW, TileNames.BLACK, TileNames.SNOW, TileNames.RED],
     [TileNames.ONE, TileNames.YELLOW, TileNames.BLACK, TileNames.SNOW],
     [TileNames.YELLOW, TileNames.BLACK, TileNames.SNOW, TileNames.RED],
+    [TileNames.ONE, TileNames.YELLOW, TileNames.BLACK, TileNames.SNOW],
+    [TileNames.YELLOW, TileNames.BLACK, TileNames.SNOW, TileNames.RED],
     [TileNames.ONE, TileNames.YELLOW, TileNames.BLACK, TileNames.SNOW]
   ]
 };

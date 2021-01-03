@@ -2,7 +2,7 @@
   <div>
     <!-- <div class="flex"> -->
     <circle-rows />
-    <!-- <pot /> -->
+    <pot />
     <!-- </div> -->
     <board />
     <!-- <board v-for="board in otherBoards" /> -->
@@ -13,9 +13,10 @@
 import { defineComponent } from "vue";
 import Board from "./Board.vue";
 import CircleRows from "./CircleRows.vue";
+import Pot from "./Pot.vue";
 
 export default defineComponent({
-  components: { Board, CircleRows },
+  components: { Board, Pot, CircleRows },
   setup() {
     return {};
   }

@@ -18,6 +18,7 @@ export default defineComponent({
     isSelectable: { type: Boolean, default: false },
     width: { type: String, required: false },
     maxWidth: { type: String, required: false },
+    circleIndex: { type: Number, required: false },
     color: {
       type: String as PropType<TileNames | null>,
       default: TileNames.SNOW

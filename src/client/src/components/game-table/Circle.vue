@@ -8,6 +8,7 @@
       width="3.5vw"
       max-width="38px"
       :isSelectable="true"
+      :circle-index="circleIndex"
     />
     <div class="flex justify-between">
       <tile
@@ -15,6 +16,7 @@
         width="3.5vw"
         max-width="38px"
         :isSelectable="true"
+        :circle-index="circleIndex"
       />
       <span class="spreader"></span>
       <tile
@@ -22,6 +24,7 @@
         width="3.5vw"
         max-width="38px"
         :isSelectable="true"
+        :circle-index="circleIndex"
       />
     </div>
     <tile
@@ -29,6 +32,7 @@
       width="3.5vw"
       max-width="38px"
       :isSelectable="true"
+      :circle-index="circleIndex"
     />
   </div>
 </template>
@@ -40,7 +44,10 @@ import Tile from "./Tile.vue";
 
 export default defineComponent({
   components: { Tile },
-  props: { tiles: { type: Array as PropType<TileNames[]>, required: true } },
+  props: {
+    tiles: { type: Array as PropType<TileNames[]>, required: true },
+    circleIndex: { type: Number, required: true }
+  },
   setup() {
     return {};
   }
@@ -51,12 +58,14 @@ export default defineComponent({
 .circle {
   background-image: url("~@/assets/images/circle.svg");
   background-position: center;
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
-  width: 13vw;
+  width: 11vw;
   max-width: 160px;
-  height: 13vw;
+  min-width: 55px;
+  height: 11vw;
   max-height: 160px;
+  min-height: 55px;
 }
 .spreader {
   width: 3vw;

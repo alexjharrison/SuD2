@@ -5,7 +5,12 @@
         v-for="(circleTiles, i) in game.circles"
         :key="i"
         :tiles="circleTiles"
-        :class="i % 2 !== 0 && screenWidth < 800 ? 'stagger' : ''"
+        :circle-index="i"
+        :class="
+          i % 2 !== 0 && screenWidth < 1000 && game.circles.length > 5
+            ? 'stagger'
+            : ''
+        "
       />
     </div>
     {{ screenWidth }}
@@ -13,7 +18,7 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent } from "vue";
+import { defineComponent } from "vue";
 import { useGameStore } from "@/store/game";
 import { useScreenWidth } from "@/hooks/useScreenWidth";
 import Circle from "./Circle.vue";
