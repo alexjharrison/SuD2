@@ -12,7 +12,9 @@
     </div>
     <div class="flex items-center justify-evenly">
       <penalty-line :penalties="board.penalties" />
-      <h2 class="text-sm md:text-3xl">Score: {{ board.score }} pts</h2>
+      <h2 v-if="isMyBoard" class="text-sm md:text-3xl">
+        Score: {{ board.score }} pts
+      </h2>
     </div>
   </div>
 </template>

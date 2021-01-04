@@ -1,11 +1,16 @@
 <template>
   <div>
-    <!-- <div class="flex"> -->
     <circle-rows :circles="game.circles" />
     <pot :tiles="game.potTiles" />
-    <!-- </div> -->
-    <board :board="game.myBoard" :isMyBoard="true" v-if="game.myBoard" />
-    <!-- <board v-for="board in otherBoards" /> -->
+    <div class="flex flex-col">
+      <board
+        class="flex-grow"
+        :board="game.myBoard"
+        :isMyBoard="true"
+        v-if="game.myBoard"
+      />
+      <!-- <opponent-boards :boards="game.otherBoards" /> -->
+    </div>
   </div>
 </template>
 
@@ -15,9 +20,10 @@ import { useGameStore } from "@/store/game";
 import Board from "./Board.vue";
 import CircleRows from "./CircleRows.vue";
 import Pot from "./Pot.vue";
+// import OpponentBoards from "./OpponentBoards.vue";
 
 export default defineComponent({
-  components: { Board, Pot, CircleRows },
+  components: { Board, Pot, CircleRows /*OpponentBoards */ },
   setup() {
     const game = useGameStore();
     return { game };

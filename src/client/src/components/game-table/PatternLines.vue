@@ -17,8 +17,8 @@
     <div class="absolute w-1/2 pin-t pin-l">
       <img v-if="isMyBoard" src="~@/assets/images/sud.svg" alt="sud logo" />
       <div v-else class="text-center">
-        <h1>Score</h1>
-        <p>{{ score }} pts</p>
+        <h1 class="text-5xl">Score</h1>
+        <p class="text-4xl">{{ score }} pts</p>
       </div>
     </div>
   </div>
