@@ -48,7 +48,7 @@ const gameState: Game = {
     },
     {
       id: "4123546gfds",
-      name: "alex",
+      name: "alex harrison",
       score: 123,
       patternLines: Array(5)
         .fill(null)

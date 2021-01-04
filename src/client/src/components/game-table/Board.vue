@@ -6,6 +6,7 @@
         :score="board.score"
         :isMyBoard="isMyBoard"
         :max-width="maxWidth"
+        :name="board.name"
         class="mr-1 md:mr-8"
       />
       <wall :board="board" class="ml-1 md:ml-8" :max-width="maxWidth" />

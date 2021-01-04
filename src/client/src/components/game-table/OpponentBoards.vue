@@ -1,10 +1,13 @@
 <template>
-  <div class="flex flex-col" v-if="boards.length > 0">
+  <div
+    v-if="boards.length > 0"
+    class="flex flex-row justify-around shrink-ray lg:flex-col"
+  >
     <board-component
-      v-for="board in boards"
-      :key="board.id"
+      v-for="(board, i) in boards"
+      :key="i"
       :board="board"
-      class="shrink-ray"
+      class="m-5"
     />
   </div>
 </template>
@@ -27,11 +30,13 @@ export default defineComponent({
 
 <style scoped>
 .shrink-ray {
-  transform: skew(0.5, 0.5);
-  width: 30%;
-  height: 30%;
+  transform: scale(0.45);
+  transform-origin: top left;
+  margin-right: -200px;
 }
-.shrink-ray >>> * {
-  font-size: 12px !important;
+@media only screen and (max-width: 990px) {
+  .shrink-ray {
+    margin: auto;
+  }
 }
 </style>

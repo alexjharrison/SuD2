@@ -17,8 +17,8 @@
     <div class="absolute w-1/2 pin-t pin-l">
       <img v-if="isMyBoard" src="~@/assets/images/sud.svg" alt="sud logo" />
       <div v-else class="text-center">
-        <h1 class="text-5xl">Score</h1>
-        <p class="text-4xl">{{ score }} pts</p>
+        <h1 class="text-3xl font-bolder">{{ name }}</h1>
+        <p class="text-3xl">{{ score }} pts</p>
       </div>
     </div>
   </div>
@@ -36,7 +36,8 @@ export default defineComponent({
     patternLines: { type: Array as PropType<PatternLine[]>, required: true },
     isMyBoard: { type: Boolean, default: false },
     score: { type: Number, required: true },
-    maxWidth: { type: String, required: true }
+    maxWidth: { type: String, required: true },
+    name: { type: String, required: true }
   },
   setup() {
     return { TileNames };
