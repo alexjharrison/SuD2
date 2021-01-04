@@ -1,6 +1,7 @@
 <template>
   <div
     class="flex flex-col items-center justify-center rounded-full bg-red-darkest circle"
+    v-if="tiles.length > 0"
   >
     <tile
       class="mx-auto"

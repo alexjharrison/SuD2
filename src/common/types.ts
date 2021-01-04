@@ -4,11 +4,12 @@ export enum TileNames {
   SNOW = "snow",
   ONE = "one",
   BLUE = "blue",
-  RED = "red"
+  RED = "red",
+  GRAY = "gray"
 }
 
 export interface PatternLine {
-  color: undefined | TileNames;
+  color: TileNames;
   numTiles: number;
   tilesFilled: number;
 }
@@ -16,6 +17,7 @@ export interface PatternLine {
 export interface Board {
   id: string;
   name: string;
+  score: number;
   patternLines: PatternLine[];
   wall: boolean[];
   penalties: TileNames[];

@@ -20,8 +20,8 @@ export default defineComponent({
     maxWidth: { type: String, required: false },
     circleIndex: { type: Number, required: false },
     color: {
-      type: String as PropType<TileNames | null>,
-      default: TileNames.SNOW
+      type: String as PropType<TileNames>,
+      required: true
     }
   },
   setup(props) {

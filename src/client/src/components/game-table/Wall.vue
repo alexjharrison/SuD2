@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-wrap wall">
+  <div class="flex flex-wrap w-full" :style="{ maxWidth }">
     <tile
       v-for="(isFilled, i) in board.wall"
       width="16%"
@@ -17,7 +17,10 @@ import { Board } from "@@/common/types";
 import { TileNames } from "../../../../common/types";
 
 export default defineComponent({
-  props: { board: { type: Object as PropType<Board>, required: true } },
+  props: {
+    board: { type: Object as PropType<Board>, required: true },
+    maxWidth: { type: String, required: true }
+  },
   components: { Tile },
   setup() {
     const colors = [
@@ -51,9 +54,3 @@ export default defineComponent({
   }
 });
 </script>
-
-<style scoped>
-.wall {
-  max-width: 500px;
-}
-</style>

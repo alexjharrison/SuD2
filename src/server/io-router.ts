@@ -7,42 +7,91 @@ const gameState: Game = {
     {
       id: "85119ddc-8d3f-4694-9591-d85afcafe3cc",
       name: "alex",
+      score: 123,
       patternLines: Array(5)
         .fill(null)
-        .map((_, i) => ({ color: undefined, numTiles: i + 1, tilesFilled: 1 })),
+        .map((_, i) => ({
+          color: TileNames.BLUE,
+          numTiles: i + 1,
+          tilesFilled: 3
+        })),
       wall: Array(25).fill(false),
       penalties: [TileNames.SNOW]
     },
     {
       id: "4123546gfds",
       name: "alex",
+      score: 123,
       patternLines: Array(5)
         .fill(null)
-        .map((_, i) => ({ color: undefined, numTiles: i + 1, tilesFilled: 1 })),
+        .map((_, i) => ({
+          color: TileNames.BLACK,
+          numTiles: i + 1,
+          tilesFilled: 1
+        })),
       wall: Array(25).fill(false),
       penalties: [TileNames.SNOW]
     },
     {
       id: "4123546gfds",
       name: "alex",
+      score: 123,
       patternLines: Array(5)
         .fill(null)
-        .map((_, i) => ({ color: undefined, numTiles: i + 1, tilesFilled: 1 })),
+        .map((_, i) => ({
+          color: TileNames.BLUE,
+          numTiles: i + 1,
+          tilesFilled: 1
+        })),
       wall: Array(25).fill(false),
       penalties: [TileNames.SNOW]
     },
     {
       id: "4123546gfds",
       name: "alex",
+      score: 123,
       patternLines: Array(5)
         .fill(null)
-        .map((_, i) => ({ color: undefined, numTiles: i + 1, tilesFilled: 1 })),
+        .map((_, i) => ({
+          color: TileNames.BLUE,
+          numTiles: i + 1,
+          tilesFilled: 1
+        })),
       wall: Array(25).fill(false),
       penalties: [TileNames.SNOW]
     }
   ],
   tilesDiscarded: [TileNames.RED],
-  potTiles: [TileNames.RED, TileNames.YELLOW],
+  potTiles: [
+    TileNames.RED,
+    TileNames.YELLOW,
+    TileNames.RED,
+    TileNames.YELLOW,
+    TileNames.RED,
+    TileNames.YELLOW,
+    TileNames.RED,
+    TileNames.YELLOW,
+    TileNames.RED,
+    TileNames.YELLOW,
+    TileNames.RED,
+    TileNames.YELLOW,
+    TileNames.RED,
+    TileNames.YELLOW,
+    TileNames.RED,
+    TileNames.YELLOW,
+    TileNames.RED,
+    TileNames.YELLOW,
+    TileNames.RED,
+    TileNames.YELLOW,
+    TileNames.RED,
+    TileNames.YELLOW,
+    TileNames.RED,
+    TileNames.YELLOW,
+    TileNames.RED,
+    TileNames.YELLOW,
+    TileNames.RED,
+    TileNames.YELLOW
+  ],
   circles: [
     [TileNames.RED, TileNames.YELLOW, TileNames.BLACK, TileNames.SNOW],
     [TileNames.SNOW, TileNames.RED, TileNames.YELLOW, TileNames.BLACK],

@@ -13,7 +13,6 @@
         "
       />
     </div>
-    {{ screenWidth }}
   </div>
 </template>
 

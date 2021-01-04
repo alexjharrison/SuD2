@@ -4,7 +4,7 @@
     <circle-rows :circles="game.circles" />
     <pot :tiles="game.potTiles" />
     <!-- </div> -->
-    <board />
+    <board :board="game.myBoard" :isMyBoard="true" v-if="game.myBoard" />
     <!-- <board v-for="board in otherBoards" /> -->
   </div>
 </template>

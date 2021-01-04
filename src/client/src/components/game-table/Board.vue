@@ -1,20 +1,45 @@
 <template>
   <div>
-    <wall :board="myBoard" v-if="myBoard" />
+    <div class="relative flex justify-center">
+      <pattern-lines
+        :pattern-lines="board.patternLines"
+        :score="board.score"
+        :isMyBoard="isMyBoard"
+        :max-width="maxWidth"
+        class="mr-1 md:mr-8"
+      />
+      <wall :board="board" class="ml-1 md:ml-8" :max-width="maxWidth" />
+    </div>
+    <div class="flex items-center justify-evenly">
+      <penalty-line :penalties="board.penalties" />
+      <h2 class="text-sm md:text-3xl">Score: {{ board.score }} pts</h2>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import { useGameStore } from "@/store/game";
-import { computed, defineComponent } from "vue";
+import { Board } from "@@/common/types";
+import { computed, defineComponent, PropType } from "vue";
+import PenaltyLine from "./PenaltyLine.vue";
+import PatternLines from "./PatternLines.vue";
 import Wall from "./Wall.vue";
+import { useScreenWidth } from "@/hooks/useScreenWidth";
 
 export default defineComponent({
-  components: { Wall },
+  components: { Wall, PatternLines, PenaltyLine },
+  props: {
+    isMyBoard: { type: Boolean, default: false },
+    board: { type: Object as PropType<Board> }
+  },
   setup() {
-    const game = useGameStore();
-    const myBoard = computed(() => game.myBoard);
-    return { myBoard };
+    const { screenWidth } = useScreenWidth();
+
+    const maxWidth = computed(() => {
+      if (screenWidth.value < 1000) return "400px";
+      else return "500px";
+    });
+
+    return { maxWidth };
   }
 });
 </script>
