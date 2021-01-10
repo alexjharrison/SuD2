@@ -25,4 +25,6 @@ if (NODE_ENV === "production") {
   app.use("/", proxy("localhost:8080"));
 }
 
-httpServer.listen(`${PORT}`, () => console.log(`Listening at ${PORT}`));
+httpServer.listen(`${PORT}`, () =>
+  console.log(`SuD2 running at http://localhost:${PORT}`)
+);

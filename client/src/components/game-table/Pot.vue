@@ -13,7 +13,7 @@
 <script lang="ts">
 import { useScreenWidth } from "@/hooks/useScreenWidth";
 import { computed, defineComponent, PropType } from "vue";
-import { TileNames } from "../../../../common/types";
+import { TileNames } from "common/types";
 import Tile from "./Tile.vue";
 
 export default defineComponent({

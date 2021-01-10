@@ -18,7 +18,7 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
-import { TileNames } from "../../../../common/types";
+import { TileNames } from "common/types";
 import { useScreenWidth } from "@/hooks/useScreenWidth";
 import Circle from "./Circle.vue";
 

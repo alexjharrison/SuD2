@@ -40,7 +40,7 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
-import { TileNames } from "../../../../common/types";
+import { TileNames } from "common/types";
 import Tile from "./Tile.vue";
 
 export default defineComponent({

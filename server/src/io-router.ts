@@ -1,5 +1,5 @@
+import { Game, TileNames } from "common/types";
 import { Server, Socket } from "socket.io";
-import { Game, TileNames } from "../common/types";
 
 const gameState: Game = {
   id: "123",

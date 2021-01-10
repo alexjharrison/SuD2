@@ -8,7 +8,7 @@
 
 <script lang="ts">
 import { computed, defineComponent, PropType, ref } from "vue";
-import { TileNames } from "../../../../common/types";
+import { TileNames } from "common/types";
 import { useElementWidth } from "@/hooks/useElementWidth";
 
 export default defineComponent({
