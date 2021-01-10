@@ -25,6 +25,6 @@
       "common/*": ["common/*"]
     }
   },
-  "include": ["**/*.ts", "**/*.vue", "**/*.d.ts"],
+  "include": ["**/*.ts", "**/*.vue", "**/*.d.ts", "client/vue.config.js"],
   "exclude": ["client/dist", "client/node_modules", "server/node_modules"]
 }
