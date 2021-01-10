@@ -1,4 +1,4 @@
-import { PatternLine } from "@@/common/types";
+import { PatternLine, TileNames } from "common/types";
 
 // export function createPatternLine(numTiles: number): IPatternLine {
 //   return {
@@ -11,7 +11,7 @@ import { PatternLine } from "@@/common/types";
 export const createPatternLine = (numTiles: number): PatternLine => ({
   numTiles,
   tilesFilled: 0,
-  color: undefined
+  color: TileNames.GRAY
 });
 
 // export class PatternLine implements IPatternLine {

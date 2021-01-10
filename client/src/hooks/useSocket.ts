@@ -1,7 +1,7 @@
 import { useGameStore } from "@/store/game";
+import { Game } from "common/types";
 import { io } from "socket.io-client";
 import { reactive } from "vue";
-import { Game } from "../../../common/types";
 
 const gameState = reactive<Game>({
   id: "placeholder",

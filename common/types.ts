@@ -23,10 +23,6 @@ export interface Board {
   penalties: TileNames[];
 }
 
-// export interface TileReceptacle {
-
-// }
-
 export interface Game {
   id: string;
   boards: Board[];

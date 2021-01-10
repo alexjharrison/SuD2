@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { Game } from "../../../common/types";
+import { Game } from "common/types";
 import { useUserStore } from "./user";
 
 export const useGameStore = defineStore({

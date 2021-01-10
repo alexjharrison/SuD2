@@ -22,7 +22,7 @@
 </template>
 
 <script lang="ts">
-import { Board } from "@@/common/types";
+import { Board } from "common/types";
 import { computed, defineComponent, PropType } from "vue";
 import PenaltyLine from "./PenaltyLine.vue";
 import PatternLines from "./PatternLines.vue";
@@ -33,7 +33,7 @@ export default defineComponent({
   components: { Wall, PatternLines, PenaltyLine },
   props: {
     isMyBoard: { type: Boolean, default: false },
-    board: { type: Object as PropType<Board> }
+    board: { type: Object as PropType<Board>, required: true }
   },
   setup() {
     const { screenWidth } = useScreenWidth();

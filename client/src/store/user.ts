@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { User } from "../../../common/types";
+import { User } from "common/types";
 import { v4 as uuidv4 } from "uuid";
 
 export const useUserStore = defineStore({

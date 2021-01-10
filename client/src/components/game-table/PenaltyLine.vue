@@ -16,7 +16,7 @@
 </template>
 
 <script lang="ts">
-import { PatternLine } from "@@/common/types";
+import { PatternLine } from "common/types";
 import { defineComponent, PropType } from "vue";
 import { TileNames } from "../../../../common/types";
 import Tile from "./Tile.vue";

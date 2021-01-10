@@ -13,7 +13,7 @@
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
 import Tile from "./Tile.vue";
-import { Board } from "@@/common/types";
+import { Board } from "common/types";
 import { TileNames } from "../../../../common/types";
 
 export default defineComponent({

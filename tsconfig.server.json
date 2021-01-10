@@ -1,8 +1,0 @@
-{
-  "extends": "./tsconfig.json",
-  "exclude": ["src/client", "src/server/node_modules"],
-  "compilerOptions": {
-    "types": ["node"],
-    "typeRoots": ["../../node_modules/@types"]
-  }
-}

@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts">
-import { Board } from "@@/common/types";
+import { Board } from "common/types";
 import { defineComponent, PropType } from "vue";
 import BoardComponent from "./Board.vue";
 
