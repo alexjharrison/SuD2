@@ -12,9 +12,13 @@ export const useUserStore = defineStore({
     fetchUser() {
       this.id = localStorage.getItem("id");
       this.name = localStorage.getItem("name");
+
+      if (!this.id) {
+        this.setUser("bob");
+      }
     },
-    setUser(name: string) {
-      this.id = uuidv4();
+    setUser(name: string, id = "85119ddc-8d3f-4694-9591-d85afcafe3cc") {
+      this.id = id || uuidv4();
       this.name = name;
       localStorage.setItem("id", this.id);
       localStorage.setItem("name", this.name);
