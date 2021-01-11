@@ -1,5 +1,5 @@
 <template>
-  <div class="max-h-screen overflow-y-hidden ">
+  <div class="max-h-screen overflow-y-hidden">
     <circle-rows :circles="game.circles" />
     <pot :tiles="game.potTiles" />
     <div class="flex flex-col lg:flex-row">

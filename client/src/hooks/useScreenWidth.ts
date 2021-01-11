@@ -1,6 +1,6 @@
-import { onBeforeMount, onBeforeUnmount, ref } from "vue";
+import { onBeforeMount, onBeforeUnmount, Ref, ref } from "vue";
 
-export function useScreenWidth() {
+export function useScreenWidth(): { screenWidth: Ref<number> } {
   const screenWidth = ref<number>(window.innerWidth);
 
   function handleResize() {

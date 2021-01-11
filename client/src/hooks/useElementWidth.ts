@@ -1,6 +1,8 @@
 import { onBeforeUnmount, onMounted, ref, Ref } from "vue";
 
-export function useElementWidth(el: Ref<HTMLElement>) {
+export function useElementWidth(
+  el: Ref<HTMLElement>
+): { elementWidth: Ref<number | undefined> } {
   const elementWidth = ref<number>();
 
   function handleResize() {
