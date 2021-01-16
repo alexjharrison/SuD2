@@ -8,7 +8,7 @@
     "build": "npm run build --prefix client",
     "dev": "concurrently --raw \"npm run dev --prefix server\" \"npm run serve --prefix client\"",
     "install-all": "npm install && cd client && npm install && cd ../server && npm install",
-    "lint": "eslint . --ext .js --ext .vue --ext .ts"
+    "lint": "eslint . --ext .js,.vue,.ts"
   },
   "repository": {
     "type": "git",
