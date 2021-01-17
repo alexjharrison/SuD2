@@ -8,18 +8,10 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { useUserStore } from "@/store/user";
-import { useGameStore } from "./store/game";
-// import { useSocket } from "./hooks/useSocket";
 
 export default defineComponent({
   setup() {
-    const user = useUserStore();
-    user.fetchUser();
-
-    const game = useGameStore();
-
-    return { user, game };
+    return {};
   }
 });
 </script>

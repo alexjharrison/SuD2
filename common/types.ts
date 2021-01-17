@@ -8,6 +8,20 @@ export enum TileNames {
   GRAY = "gray"
 }
 
+export enum Events {
+  GAME_INITIALIZED = "GAME_INITIALIZED",
+  PLAYER_ADDED = "PLAYER_ADDED",
+  GAME_STARTED = "GAME_STARTED",
+  PLAYER_MOVED = "PLAYER_MOVED"
+}
+
+export enum Gamestates {
+  ADDING_PLAYERS,
+  AWAITING_PLAYER_INPUT,
+  ROUND_ENDED,
+  GAME_ENDED
+}
+
 export interface PatternLine {
   color: TileNames;
   numTiles: number;
@@ -23,19 +37,16 @@ export interface Board {
   penalties: TileNames[];
 }
 
-// export interface TileReceptacle {
-
-// }
-
 export interface Game {
   id: string;
   boards: Board[];
   tilesDiscarded: TileNames[];
   potTiles: TileNames[];
+  bagTiles: TileNames[];
   circles: TileNames[][];
 }
 
 export interface User {
-  id: string | null;
-  name: string | null;
+  id: string;
+  name: string;
 }

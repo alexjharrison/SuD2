@@ -1,17 +1,20 @@
 <template>
-  <div>
-    <router-link to="/game/12345">go to game</router-link>
+  <div class="container m-auto">
+    <button @click="$router.push(`/lobby/${newUUID}`)" tag="button">
+      Start a new game
+    </button>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import { v4 } from "uuid";
 
 export default defineComponent({
   setup() {
-    const name = "home screen";
+    const newUUID = v4();
 
-    return { name };
+    return { newUUID };
   }
 });
 </script>

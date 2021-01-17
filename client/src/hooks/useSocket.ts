@@ -1,5 +1,5 @@
 import { useGameStore } from "@/store/game";
-import { Game } from "common/types";
+import { Events, Game, User } from "common/types";
 import { io } from "socket.io-client";
 import { reactive } from "vue";
 
@@ -8,15 +8,20 @@ const gameState = reactive<Game>({
   boards: [],
   tilesDiscarded: [],
   circles: [[]],
-  potTiles: []
+  potTiles: [],
+  bagTiles: []
 });
 
 const socket = io();
-export function useSocket(): Game {
+export function useSocket() {
   socket.on("update", (updatedGameState: Game) => {
     const game = useGameStore();
     game.setGame(updatedGameState);
   });
 
-  return gameState;
+  function startGame(user: User) {
+    socket.emit(Events.GAME_STARTED, user);
+  }
+
+  return { startGame };
 }

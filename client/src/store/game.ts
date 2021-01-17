@@ -9,7 +9,8 @@ export const useGameStore = defineStore({
     boards: [],
     tilesDiscarded: [],
     circles: [[]],
-    potTiles: []
+    potTiles: [],
+    bagTiles: []
   }),
   getters: {
     myBoard() {

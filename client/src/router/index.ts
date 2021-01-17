@@ -20,6 +20,11 @@ const routes: Array<RouteRecordRaw> = [
     path: "/game/:id",
     name: "Game",
     component: () => import("../views/Game.vue")
+  },
+  {
+    path: "/lobby/:id",
+    name: "Lobby",
+    component: () => import("../views/Lobby.vue")
   }
 ];
 
