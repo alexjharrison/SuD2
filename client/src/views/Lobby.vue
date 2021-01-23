@@ -1,41 +1,26 @@
 <template>
-  <div v-if="user.name" class="container m-auto">
-    <h1>Waiting Room</h1>
-    <p>Copy the link below to have people join your game</p>
-
-    <p>{{ url }}</p>
-    <button @click="copyToClipboard">Copy to clipboard</button>
-  </div>
-  <div v-else>
-    <h1>Enter your name</h1>
-    <form @submit.prevent="name && user.setUser(name, gameId)">
-      <input type="text" v-model="name" autofocus />
-      <button type="submit">Save Name</button>
-    </form>
-  </div>
+  <enter-name-modal v-if="!user.name" />
+  <join-game-screen v-else-if="!myRoom.gameId" />
+  <joined-game-screen v-else />
 </template>
 
 <script lang="ts">
+import JoinedGameScreen from "@/components/lobby-screens/JoinedGameScreen.vue";
+import JoinGameScreen from "@/components/lobby-screens/JoinGameScreen.vue";
+import EnterNameModal from "../components/modals/EnterNameModal.vue";
+import { useRoomStore } from "@/store/room";
 import { useUserStore } from "@/store/user";
-import { defineComponent, ref } from "vue";
-import { useRoute } from "vue-router";
+import { defineComponent } from "vue";
 
 export default defineComponent({
+  components: { EnterNameModal, JoinGameScreen, JoinedGameScreen },
   setup() {
-    const route = useRoute();
-
     const user = useUserStore();
     user.fetchUser();
 
-    const name = ref("");
-    const gameId = String(route.params.id);
+    const { myRoom } = useRoomStore();
 
-    const url = document.URL;
-    const copyToClipboard = () => {
-      navigator.clipboard.writeText(url);
-    };
-
-    return { copyToClipboard, url, user, name, gameId };
+    return { user, myRoom };
   }
 });
 </script>

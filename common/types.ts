@@ -10,9 +10,11 @@ export enum TileNames {
 
 export enum Events {
   GAME_INITIALIZED = "GAME_INITIALIZED",
-  PLAYER_ADDED = "PLAYER_ADDED",
+  JOIN_SOCKET_ROOM = "JOIN_SOCKET_ROOM",
   GAME_STARTED = "GAME_STARTED",
-  PLAYER_MOVED = "PLAYER_MOVED"
+  PLAYER_MOVED = "PLAYER_MOVED",
+  UPDATE_GAME_STATE = "UPDATE_GAME_STATE",
+  UPDATE_ROOM_STATE = "UPDATE_ROOM_STATE"
 }
 
 export enum Gamestates {
@@ -49,4 +51,9 @@ export interface Game {
 export interface User {
   id: string;
   name: string;
+}
+
+export interface Room {
+  users: User[];
+  gameId: string;
 }

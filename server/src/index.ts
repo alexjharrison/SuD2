@@ -3,7 +3,7 @@ import path from "path";
 import proxy from "express-http-proxy";
 import { createServer } from "http";
 import { Server } from "socket.io";
-import { ioRouter } from "./io-router";
+import { ioRouter } from "./io";
 
 import { config } from "dotenv";
 config();

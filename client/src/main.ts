@@ -11,5 +11,3 @@ import { useSocket } from "./hooks/useSocket";
 useSocket();
 
 createApp(App).use(router).use(createPinia()).mount("#app");
-
-// create socket connection and grab initial data
