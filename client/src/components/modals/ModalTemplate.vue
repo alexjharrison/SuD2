@@ -1,6 +1,10 @@
 <template>
-  <div>
-    <slot />
+  <div class="flex items-center justify-center min-h-screen">
+    <div
+      class="w-4/5 h-64 px-4 py-2 bg-transparent border rounded lg:w-1/2 border-blue-darkest"
+    >
+      <slot />
+    </div>
   </div>
 </template>
 
@@ -9,7 +13,9 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   setup() {
-    return {};
+    return {
+      isOpen: true
+    };
   }
 });
 </script>

@@ -1,19 +1,39 @@
 import { Events, Game, Room, User } from "common/types";
 import { Server, Socket } from "socket.io";
-import { joinRoom } from "./rooms";
+import { v4 } from "uuid";
+import { startGame } from "./games";
+import { joinRoom, roomByUserId } from "./rooms";
 
 export const ioRouter = (io: Server) => {
   io.on("connection", (socket: Socket) => {
     console.log("User Connected");
-    // const gameState = createFakeGame({ id: "456", name: "rando" });
-    // socket.emit("update", gameState);
 
-    socket.on(Events.JOIN_SOCKET_ROOM, (user: User, gameId: string) => {
-      console.log(`user ${user.name} joined game ${gameId}`);
+    socket.on(
+      Events.JOIN_SOCKET_ROOM,
+      (name: string, gameId: string, userId?: string) => {
+        if (userId) {
+          const myRoom = roomByUserId(userId);
+          if (myRoom) {
+            socket.emit(Events.UPDATE_ROOM_STATE, myRoom);
+            socket.join(myRoom.gameId);
+          } else socket.emit(Events.UPDATE_USER_ID, undefined);
+          return;
+        }
 
-      const myRoom = joinRoom(user, gameId);
-      socket.join(myRoom.gameId);
-      io.to(myRoom.gameId).emit(Events.UPDATE_ROOM_STATE, myRoom);
+        const newUser: User = { name, id: v4() };
+        console.log(`user ${name} joined game ${gameId}`);
+
+        const myRoom = joinRoom(newUser, gameId);
+        socket.emit(Events.UPDATE_USER_ID, newUser.id);
+
+        socket.join(myRoom.gameId);
+        io.to(myRoom.gameId).emit(Events.UPDATE_ROOM_STATE, myRoom);
+      }
+    );
+
+    socket.on(Events.GAME_STARTED, (room: Room): void => {
+      const newGame = startGame(room);
+      io.to(newGame.id).emit(Events.UPDATE_GAME_STATE, newGame);
     });
   });
 };

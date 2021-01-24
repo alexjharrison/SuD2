@@ -15,7 +15,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { computed, defineComponent } from "vue";
 import { useGameStore } from "@/store/game";
 import Board from "./Board.vue";
 import CircleRows from "./CircleRows.vue";
@@ -26,7 +26,7 @@ export default defineComponent({
   components: { Board, Pot, CircleRows, OpponentBoards },
   setup() {
     const game = useGameStore();
-    return { game };
+    return { game: computed(() => game) };
   }
 });
 </script>

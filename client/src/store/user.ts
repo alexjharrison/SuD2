@@ -12,11 +12,13 @@ export const useUserStore = defineStore({
       this.id = localStorage.getItem("id") || "";
       this.name = localStorage.getItem("name") || "";
     },
-    setUserName(name: string, userId: string) {
-      this.id = userId;
+    setUserName(name: string) {
       this.name = name;
-      localStorage.setItem("id", this.id);
       localStorage.setItem("name", this.name);
+    },
+    setUserId(id: string) {
+      this.id = id;
+      localStorage.setItem("id", this.id);
     },
     resetUser() {
       this.id = "";

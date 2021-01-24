@@ -29,6 +29,15 @@ export const useGameStore = defineStore({
       this.tilesDiscarded = game.tilesDiscarded;
       this.circles = game.circles;
       this.potTiles = game.potTiles;
+      this.bagTiles = game.bagTiles;
+    },
+    reset() {
+      this.id = "placeholder";
+      this.boards = [];
+      this.tilesDiscarded = [];
+      this.circles = [];
+      this.potTiles = [];
+      this.bagTiles = [];
     }
   }
 });
