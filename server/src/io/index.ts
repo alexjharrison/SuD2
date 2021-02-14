@@ -1,10 +1,15 @@
 import { Events, Game, Room, User } from "common/types";
-import { Server, Socket } from "socket.io";
+import { Server } from "http";
+import { Socket, Server as ioServer } from "socket.io";
 import { v4 } from "uuid";
 import { startGame } from "./games";
 import { joinRoom, roomByUserId } from "./rooms";
 
-export const ioRouter = (io: Server) => {
+export let io: ioServer;
+
+export const createSocketServer = (httpServer: Server) => {
+  io = new ioServer(httpServer);
+
   io.on("connection", (socket: Socket) => {
     console.log("User Connected");
 
