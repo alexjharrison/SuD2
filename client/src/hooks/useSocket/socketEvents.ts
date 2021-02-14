@@ -10,12 +10,16 @@ export interface SocketEvents {
 
 export function joinRoom(gameId: string): void {
   const user = useUserStore();
-  socket.emit(Events.JOIN_SOCKET_ROOM, user.name, gameId, user.id);
+  socket.emit(Events.JOIN_SOCKET_ROOM, {
+    name: user.name,
+    gameId,
+    userId: user.id
+  });
 }
 
 export function startGame(): void {
   const room = useRoomStore();
-  socket.emit(Events.GAME_STARTED, room.myRoom);
+  socket.emit(Events.GAME_STARTED, { room: room.myRoom });
 }
 
 // export function resetServer(): void {
