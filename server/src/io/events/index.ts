@@ -6,7 +6,7 @@ import { joinSocketRoomSocket } from "./joinSocketRoom";
 export type SocketActionFn<T> = (socket: Socket) => (message: T) => void;
 
 interface WrappedServerSocket<T> {
-  event: string;
+  event: SocketActionTitles;
   callback: SocketActionFn<T>;
 }
 
