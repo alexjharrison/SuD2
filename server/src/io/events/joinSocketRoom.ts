@@ -17,7 +17,8 @@ export const joinSocketRoomSocket = () =>
         if (myRoom) {
           socket.emit(SocketActionTitles.UPDATE_ROOM_STATE, myRoom);
           socket.join(myRoom.gameId);
-        } else socket.emit(SocketActionTitles.UPDATE_USER_ID, undefined);
+        } else
+          socket.emit(SocketActionTitles.UPDATE_USER_ID, { id: undefined });
         return;
       }
 
@@ -25,7 +26,7 @@ export const joinSocketRoomSocket = () =>
       console.log(`user ${name} joined game ${gameId}`);
 
       const myRoom = joinRoom(newUser, gameId);
-      socket.emit(SocketActionTitles.UPDATE_USER_ID, newUser.id);
+      socket.emit(SocketActionTitles.UPDATE_USER_ID, { id: newUser.id });
 
       socket.join(myRoom.gameId);
       io.to(myRoom.gameId).emit(SocketActionTitles.UPDATE_ROOM_STATE, myRoom);

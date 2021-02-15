@@ -1,7 +1,6 @@
 import { Game, Room } from "./types";
 
 export enum SocketActionTitles {
-  GAME_INITIALIZED = "GAME_INITIALIZED",
   JOIN_SOCKET_ROOM = "JOIN_SOCKET_ROOM",
   GAME_STARTED = "GAME_STARTED",
   PLAYER_MOVED = "PLAYER_MOVED",
@@ -20,6 +19,11 @@ export interface SocketEventToServerArgs {
   [SocketActionTitles.GAME_STARTED]: {
     room: Room;
   };
+  [SocketActionTitles.UPDATE_GAME_STATE]: never;
+  [SocketActionTitles.UPDATE_ROOM_STATE]: never;
+  [SocketActionTitles.UPDATE_USER_ID]: never;
+  [SocketActionTitles.PLAYER_MOVED]: never;
+  [SocketActionTitles.RESET_SERVER]: never;
 }
 
 export interface SocketEventToClientArgs {
@@ -27,12 +31,15 @@ export interface SocketEventToClientArgs {
     game: Game;
   };
   [SocketActionTitles.UPDATE_GAME_STATE]: {
-    updatedGameState: Game;
+    gameState: Game;
   };
   [SocketActionTitles.UPDATE_ROOM_STATE]: {
-    updatedRoomState: Room;
+    roomState: Room;
   };
   [SocketActionTitles.UPDATE_USER_ID]: {
     id: string;
   };
+  [SocketActionTitles.JOIN_SOCKET_ROOM]: never;
+  [SocketActionTitles.PLAYER_MOVED]: never;
+  [SocketActionTitles.RESET_SERVER]: never;
 }

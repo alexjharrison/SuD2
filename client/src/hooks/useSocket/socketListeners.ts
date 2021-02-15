@@ -1,27 +1,29 @@
 import { useGameStore } from "@/store/game";
 import { useRoomStore } from "@/store/room";
 import { useUserStore } from "@/store/user";
-import { Events, Game, Room } from "common/types";
 import { Socket } from "socket.io-client";
 import { useRouter } from "vue-router";
+import { clientSockets } from "./socketEvents";
 
 export function socketListeners(socket: Socket): void {
-  socket.on(Events.UPDATE_GAME_STATE, (updatedGameState: Game) => {
+  clientSockets.updateGameState.on(({ gameState }) => {
+    console.log({ gameState });
     const game = useGameStore();
-    game.setGame(updatedGameState);
+    game.setGame(gameState);
   });
 
-  socket.on(Events.UPDATE_ROOM_STATE, (updatedRoomState: Room) => {
+  clientSockets.updateRoomState.on(({ roomState }) => {
     const room = useRoomStore();
-    room.setRoom(updatedRoomState);
+    room.setRoom(roomState);
   });
 
-  socket.on(Events.UPDATE_USER_ID, (id: string) => {
+  clientSockets.updateUserId.on(payload => {
+    console.log(payload);
     const user = useUserStore();
-    user.setUserId(id);
+    user.setUserId(payload.id);
   });
 
-  socket.on(Events.GAME_STARTED, (game: Game) => {
+  clientSockets.gameStarted.on(({ game }) => {
     const router = useRouter();
     router.push(`/game/${game.id}`);
   });

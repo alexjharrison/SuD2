@@ -1,27 +1,27 @@
-import { useRoomStore } from "@/store/room";
-import { useUserStore } from "@/store/user";
-import { Events } from "common/types";
-import { socket } from ".";
+import { SocketActionTitles } from "common/socketEvents";
+import { createSocket } from "./socketClientWrapper";
 
-export interface SocketEvents {
-  joinRoom: (gameId: string) => void;
-  startGame: () => void;
-}
-
-export function joinRoom(gameId: string): void {
-  const user = useUserStore();
-  socket.emit(Events.JOIN_SOCKET_ROOM, {
-    name: user.name,
-    gameId,
-    userId: user.id
-  });
-}
-
-export function startGame(): void {
-  const room = useRoomStore();
-  socket.emit(Events.GAME_STARTED, { room: room.myRoom });
-}
-
-// export function resetServer(): void {
-//   socket.emit(Events.RESET_SERVER);
-// }
+// initialize typed events here
+export const clientSockets = {
+  joinSocketRoom: createSocket<SocketActionTitles.JOIN_SOCKET_ROOM>(
+    SocketActionTitles.JOIN_SOCKET_ROOM
+  ),
+  gameStarted: createSocket<SocketActionTitles.GAME_STARTED>(
+    SocketActionTitles.GAME_STARTED
+  ),
+  playerMoved: createSocket<SocketActionTitles.PLAYER_MOVED>(
+    SocketActionTitles.PLAYER_MOVED
+  ),
+  updateGameState: createSocket<SocketActionTitles.UPDATE_GAME_STATE>(
+    SocketActionTitles.UPDATE_GAME_STATE
+  ),
+  updateRoomState: createSocket<SocketActionTitles.UPDATE_ROOM_STATE>(
+    SocketActionTitles.UPDATE_ROOM_STATE
+  ),
+  updateUserId: createSocket<SocketActionTitles.UPDATE_USER_ID>(
+    SocketActionTitles.UPDATE_USER_ID
+  ),
+  resetServer: createSocket<SocketActionTitles.RESET_SERVER>(
+    SocketActionTitles.RESET_SERVER
+  )
+};
