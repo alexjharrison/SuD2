@@ -1,4 +1,4 @@
-import { SocketActionTitles, SocketEventArgs } from "common/socketEvents";
+import { SocketActionTitles } from "common/socketEvents";
 import { Socket } from "socket.io";
 import { gameStartedSocket } from "./gameStarted";
 import { joinSocketRoomSocket } from "./joinSocketRoom";

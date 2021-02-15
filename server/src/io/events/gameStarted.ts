@@ -1,10 +1,13 @@
-import { SocketActionTitles, SocketEventArgs } from "common/socketEvents";
+import {
+  SocketActionTitles,
+  SocketEventToServerArgs
+} from "common/socketEvents";
 import { createSocket } from ".";
 import { io } from "..";
 import { startGame } from "../games";
 
 export const gameStartedSocket = () =>
-  createSocket<SocketEventArgs["GAME_STARTED"]>(
+  createSocket<SocketEventToServerArgs["GAME_STARTED"]>(
     SocketActionTitles["GAME_STARTED"],
     socket => ({ room }) => {
       const newGame = startGame(room);

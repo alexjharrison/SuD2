@@ -1,4 +1,4 @@
-import { Room } from "./types";
+import { Game, Room } from "./types";
 
 export enum SocketActionTitles {
   GAME_INITIALIZED = "GAME_INITIALIZED",
@@ -11,7 +11,7 @@ export enum SocketActionTitles {
   RESET_SERVER = "RESET_SERVER"
 }
 
-export interface SocketEventArgs {
+export interface SocketEventToServerArgs {
   [SocketActionTitles.JOIN_SOCKET_ROOM]: {
     name: string;
     gameId: string;
@@ -19,5 +19,20 @@ export interface SocketEventArgs {
   };
   [SocketActionTitles.GAME_STARTED]: {
     room: Room;
+  };
+}
+
+export interface SocketEventToClientArgs {
+  [SocketActionTitles.GAME_STARTED]: {
+    game: Game;
+  };
+  [SocketActionTitles.UPDATE_GAME_STATE]: {
+    updatedGameState: Game;
+  };
+  [SocketActionTitles.UPDATE_ROOM_STATE]: {
+    updatedRoomState: Room;
+  };
+  [SocketActionTitles.UPDATE_USER_ID]: {
+    id: string;
   };
 }

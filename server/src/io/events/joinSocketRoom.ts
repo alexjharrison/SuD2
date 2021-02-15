@@ -1,4 +1,7 @@
-import { SocketActionTitles, SocketEventArgs } from "common/socketEvents";
+import {
+  SocketActionTitles,
+  SocketEventToServerArgs
+} from "common/socketEvents";
 import { User } from "common/types";
 import { v4 } from "uuid";
 import { createSocket } from ".";
@@ -6,7 +9,7 @@ import { io } from "..";
 import { joinRoom, roomByUserId } from "../rooms";
 
 export const joinSocketRoomSocket = () =>
-  createSocket<SocketEventArgs["JOIN_SOCKET_ROOM"]>(
+  createSocket<SocketEventToServerArgs["JOIN_SOCKET_ROOM"]>(
     SocketActionTitles["JOIN_SOCKET_ROOM"],
     socket => ({ name, gameId, userId }) => {
       if (userId) {
