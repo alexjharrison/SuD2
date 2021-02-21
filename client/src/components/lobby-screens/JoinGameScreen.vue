@@ -10,13 +10,12 @@
 </template>
 
 <script lang="ts">
-import { useSocket } from "@/hooks/useSocket";
+import { joinRoom } from "@/socket/socketEmitters";
 import { defineComponent } from "vue";
 import { useRoute } from "vue-router";
 
 export default defineComponent({
   setup() {
-    const { joinRoom } = useSocket();
     const route = useRoute();
     const gameId = String(route.params.id);
     return { joinRoom, gameId };

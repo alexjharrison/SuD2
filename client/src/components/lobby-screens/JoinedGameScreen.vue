@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts">
-import { useSocket } from "@/hooks/useSocket";
+import { joinRoom, startGame } from "@/socket/socketEmitters";
 import { useGameStore } from "@/store/game";
 import { useRoomStore } from "@/store/room";
 import { computed, defineComponent, watch } from "vue";
@@ -21,7 +21,6 @@ import { useRoute, useRouter } from "vue-router";
 
 export default defineComponent({
   setup() {
-    const { joinRoom, startGame } = useSocket();
     const room = useRoomStore();
 
     const route = useRoute();

@@ -1,11 +1,10 @@
 import { useGameStore } from "@/store/game";
 import { useRoomStore } from "@/store/room";
 import { useUserStore } from "@/store/user";
-import { Socket } from "socket.io-client";
 import { useRouter } from "vue-router";
 import { clientSockets } from "./socketEvents";
 
-export function socketListeners(socket: Socket): void {
+export function socketListeners(): void {
   clientSockets.updateGameState.on(({ gameState }) => {
     console.log({ gameState });
     const game = useGameStore();
@@ -17,10 +16,9 @@ export function socketListeners(socket: Socket): void {
     room.setRoom(roomState);
   });
 
-  clientSockets.updateUserId.on(payload => {
-    console.log(payload);
+  clientSockets.updateUserId.on(({ id }) => {
     const user = useUserStore();
-    user.setUserId(payload.id);
+    user.setUserId(id);
   });
 
   clientSockets.gameStarted.on(({ game }) => {

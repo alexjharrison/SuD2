@@ -1,16 +1,10 @@
 import { useRoomStore } from "@/store/room";
 import { useUserStore } from "@/store/user";
-import { Events } from "common/types";
-import { socket } from ".";
-
-export interface SocketEvents {
-  joinRoom: (gameId: string) => void;
-  startGame: () => void;
-}
+import { clientSockets } from "./socketEvents";
 
 export function joinRoom(gameId: string): void {
   const user = useUserStore();
-  socket.emit(Events.JOIN_SOCKET_ROOM, {
+  clientSockets.joinSocketRoom.emit({
     name: user.name,
     gameId,
     userId: user.id
@@ -19,7 +13,8 @@ export function joinRoom(gameId: string): void {
 
 export function startGame(): void {
   const room = useRoomStore();
-  socket.emit(Events.GAME_STARTED, { room: room.myRoom });
+  if (!room.myRoom) return;
+  clientSockets.gameStarted.emit({ room: room.myRoom });
 }
 
 // export function resetServer(): void {

@@ -7,7 +7,7 @@ dotenv.config();
 
 import "./assets/styles/main.css";
 
-import { useSocket } from "./hooks/useSocket";
+import { useSocket } from "./socket";
 useSocket();
 
 createApp(App).use(router).use(createPinia()).mount("#app");
